@@ -2,6 +2,7 @@ package net.theelementguy.tegmoremetals.matlib;
 
 import com.github.theelementguy.tegmatlib.loot.LootItemSlot;
 import com.github.theelementguy.tegmatlib.loot.LootModifierType;
+import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -30,7 +31,9 @@ public class MoreMetalsMaterials implements FullyConfiguredMaterialHolder {
 
 	private Supplier<MaterialConfiguration> STARSHARD = () -> new EndDiamondTypeBuilder().armorMaterial(41, 4, 8, 6, 4, 12, 13, () -> SoundEvents.ARMOR_EQUIP_DIAMOND, 1f, 0f).toolMaterial(3001, 15f, 5f, 13).baseName("starshard").inGameName("Starshard").dropsPerOre(1).smeltingExperience(1.3f).modId("tegmoremetals").tier(MiningTier.BEYOND_NETHERITE).blockProperties(() -> MapColor.COLOR_GREEN, () -> SoundType.AMETHYST).setBefore("rubidium", "rubidium", () -> RUBIDIUM.get().getBaseItem(), () -> RUBIDIUM.get().getBaseBlock(), "ancient_debris").oreConfigSimple(OreGenConfig.smallAllBiomes(80, -64, OreDistribution.UNIFORM, 1, 20, Dimension.END), OreGenConfig.largeAllBiomes(80, -64, OreDistribution.UNIFORM, 3, 5, Dimension.END)).spearMaterial(1.25F, 1.3F, 0.3F, 2F, 6.5F, 5F, 5.1F, 8F, 4.6F).trimMaterialDescriptionColor("#7fe9f5").usingHorseArmor().animalArmorBefore("rubidium").addLoot(LootItemSlot.HORSE_ARMOR, LootModifierType.EXTRA, "chests/end_city_treasure", 0.038f).addLoot(LootItemSlot.AXE, LootModifierType.ADD, "chests/trial_chambers/reward_ominous_rare", 0.075f).usingNautilusArmor().addLoot(LootItemSlot.NAUTILUS_ARMOR, LootModifierType.EXTRA, "chests/shipwreck_treasure", 0.0011f).build();
 
-	public List<Supplier<MaterialConfiguration>> MATERIALS = List.of(TENUMBRUM, BLOODSTONE, CUBIC_ZIRCONIA, RUBIDIUM, STARSHARD);
+	private Supplier<MaterialConfiguration> AQUAMARINE = () -> new SandDiamondTypeBuilder().armorMaterial(13, 3, 6, 6, 2, 6, 15, () -> SoundEvents.ARMOR_EQUIP_DIAMOND, 0f, 0f).toolMaterial(276, 5.5f, 3f, 15).baseName("aquamarine").inGameName("Aquamarine").dropsPerOre(1).smeltingExperience(0.5f).modId("tegmoremetals").tier(MiningTier.IRON).blockProperties(() -> MapColor.DIAMOND, () -> SoundType.METAL).setBefore("cubic_zirconia", "cubic_zirconia", () -> CUBIC_ZIRCONIA.get().getBaseItem(), () -> CUBIC_ZIRCONIA.get().getBaseBlock(), "deepslate_tenumbrum_ore").oreConfigSimple(OreGenConfig.smallAllBiomes(53, 34, OreDistribution.TRIANGLE, 1, 10, Dimension.OVERWORLD), OreGenConfig.largeAllBiomes(40, 30, OreDistribution.UNIFORM, 5, 2, Dimension.OVERWORLD)).spearMaterial(0.95F, 0.95F, 0.6F, 2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F).trimMaterialDescriptionColor("#6666ff").usingHorseArmor().animalArmorBefore("cubic_zirconia").usingNautilusArmor().addLoot(LootItemSlot.HORSE_ARMOR, LootModifierType.EXTRA, "chests/underwater_ruin_big", 0.09f).addLoot(LootItemSlot.NAUTILUS_ARMOR, LootModifierType.EXTRA, "chests/shipwreck_treasure", 0.07f).addModelException("aquamarine_block", TexturedModel.COLUMN).build();
+
+	public List<Supplier<MaterialConfiguration>> MATERIALS = List.of(TENUMBRUM, BLOODSTONE, CUBIC_ZIRCONIA, RUBIDIUM, STARSHARD, AQUAMARINE);
 
 	@Override
 	public void setMaterialConfiguration(List<Supplier<MaterialConfiguration>> material) {
@@ -40,6 +43,7 @@ public class MoreMetalsMaterials implements FullyConfiguredMaterialHolder {
 		CUBIC_ZIRCONIA = material.get(2);
 		RUBIDIUM = material.get(3);
 		STARSHARD = material.get(4);
+		AQUAMARINE = material.get(5);
 	}
 
 	public List<MaterialConfiguration> getMaterials() {

@@ -5,7 +5,9 @@ TheElementGuy's More Metals and Ores
 
 This mod adds a total of four new materials to the game. They are:
 - Cubic zirconia
-- Bronze
+- Bloodstone
+- Tenumbrum
+- Aquamarine (in the sea)
 - Rubidium (Nether)
 - Starshard (The End)
 

@@ -14,7 +14,7 @@ loaderVersion="${loader_version_range}" #mandatory
 license="MIT License"
 
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/TheElementGuy/more-metals-1.21.4/issues" #optional
+issueTrackerURL="https://github.com/TheElementGuy/more-metals/issues" #optional
 
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
@@ -23,7 +23,7 @@ issueTrackerURL="https://github.com/TheElementGuy/more-metals-1.21.4/issues" #op
 modId="tegmoremetals" #mandatory
 
 # The version number of the mod
-version="26.1.0.4" #mandatory
+version="26.2.0.0" #mandatory
 
 # A display name for the mod
 displayName="More Metals" #mandatory

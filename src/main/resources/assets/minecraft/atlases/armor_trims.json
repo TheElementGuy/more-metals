@@ -25,7 +25,8 @@
         "bronze": "tegmoremetals:trims/color_palettes/bronze",
         "tin": "tegmoremetals:trims/color_palettes/tin",
         "bloodstone": "tegmoremetals:trims/color_palettes/bloodstone",
-        "tenumbrum": "tegmoremetals:trims/color_palettes/tenumbrum"
+        "tenumbrum": "tegmoremetals:trims/color_palettes/tenumbrum",
+        "aquamarine": "tegmoremetals:trims/color_palettes/aquamarine"
       },
       "textures": [
         "minecraft:trims/entity/humanoid/sentry",

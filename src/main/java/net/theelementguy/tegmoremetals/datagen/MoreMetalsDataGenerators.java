@@ -26,20 +26,19 @@ import static net.theelementguy.tegmoremetals.MoreMetalsMod.MATERIAL_PROVIDER;
 public class MoreMetalsDataGenerators {
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent.Client event) {
+    public static void gatherData(GatherDataEvent event) {
 
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        generator.addProvider(true, new TEGMatLibModelProvider(event, MATERIAL_PROVIDER));
-
-        generator.addProvider(true, new TEGMatLibEquipmentAssetProvider(event, MATERIAL_PROVIDER));
+        generator.addProvider(true, new TEGMatLibItemModelProvider(event, MATERIAL_PROVIDER));
+		generator.addProvider(true, new TEGMatLibBlockStateProvider(event, MATERIAL_PROVIDER));
 
         generator.addProvider(true, new TEGMatLibLanguageProvider(event, MATERIAL_PROVIDER));
 
         generator.addProvider(true, TEGMatLibBlockLootTableProvider.create(event, MATERIAL_PROVIDER));
-        generator.addProvider(true, new TEGMatLibRecipeProvider.Runner(event, "More Metals", MATERIAL_PROVIDER));
+        generator.addProvider(true, new TEGMatLibRecipeProvider(event, MATERIAL_PROVIDER));
 
         BlockTagsProvider blockTagsProvider = new TEGMatLibBlockTagProvider(event, MATERIAL_PROVIDER);
         generator.addProvider(true, blockTagsProvider);
@@ -53,10 +52,6 @@ public class MoreMetalsDataGenerators {
 
         generator.addProvider(true, new TEGMatLibDatapackProvider(event, MoreMetalsMod.MOD_ID, configuredFeatures, placedFeatures, biomeModifiers, trims));
 		generator.addProvider(true, new TEGMatLibGlobalLootModifierProvider(event, MATERIAL_PROVIDER));
-    }
-
-    @SubscribeEvent
-    public static void gatherData(GatherDataEvent.Server event) {
     }
 
 }

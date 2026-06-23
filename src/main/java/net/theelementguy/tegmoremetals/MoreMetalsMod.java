@@ -46,7 +46,7 @@ public class MoreMetalsMod {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
 
 		TEGMatLibItemProvider itemProvider = new TEGMatLibItemProvider(MATERIAL_PROVIDER);
-        itemProvider.registerItems(MoreMetalsRegisters.ITEMS);
+        itemProvider.registerItems(MoreMetalsRegisters.ITEMS, MoreMetalsRegisters.ARMOR_MATERIALS);
 
 		TEGMatLibBlockProvider blockProvider = new TEGMatLibBlockProvider(MATERIAL_PROVIDER);
 		blockProvider.registerBlocks(MoreMetalsRegisters.BLOCKS, () -> MoreMetalsRegisters.ITEMS);

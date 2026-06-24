@@ -38,7 +38,7 @@ displayURL="https://https://www.curseforge.com/minecraft/mc-mods/theelementguys-
 logoFile="logo_scaled.png" #optional
 
 # A text field displayed in the mod UI
-credits="Jude Rasmussen, exlinegames (some textures)" #optional
+credits="Jude Rasmussen" #optional
 
 # A text field displayed in the mod UI
 authors="Jude Rasmussen" #optional

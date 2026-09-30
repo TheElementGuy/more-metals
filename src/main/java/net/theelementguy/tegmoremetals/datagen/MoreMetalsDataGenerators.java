@@ -25,7 +25,9 @@ public class MoreMetalsDataGenerators {
 
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
+        CompletableFuture<HolderLookup.Provider> provider = event.getWorldLookupProvider();
+
+		TEGMatLibDatapackHelper.run(event, MATERIAL_PROVIDER);
 
         generator.addProvider(true, new TEGMatLibModelProvider(event, MATERIAL_PROVIDER));
 
@@ -33,20 +35,11 @@ public class MoreMetalsDataGenerators {
 
         generator.addProvider(true, new TEGMatLibLanguageProvider(event, MATERIAL_PROVIDER));
 
-        generator.addProvider(true, TEGMatLibBlockLootTableProvider.create(event, MATERIAL_PROVIDER));
-        generator.addProvider(true, new TEGMatLibRecipeProvider.Runner(event, "More Metals", MATERIAL_PROVIDER));
-
         BlockTagsProvider blockTagsProvider = new TEGMatLibBlockTagProvider(event, MATERIAL_PROVIDER);
         generator.addProvider(true, blockTagsProvider);
         generator.addProvider(true, new TEGMatLibItemTagProvider(event, MATERIAL_PROVIDER));
         generator.addProvider(true, new MoreMetalsBiomeTagsProvider(output, provider));
 
-		TEGMatLibConfiguredFeatureProvider configuredFeatures = new TEGMatLibConfiguredFeatureProvider(MATERIAL_PROVIDER);
-		TEGMatLibPlacedFeatureProvider placedFeatures = new TEGMatLibPlacedFeatureProvider(MATERIAL_PROVIDER);
-		TEGMatLibBiomeModifierProvider biomeModifiers = new TEGMatLibBiomeModifierProvider(MATERIAL_PROVIDER);
-		TEGMatLibTrimMaterialProvider trims = new TEGMatLibTrimMaterialProvider(MATERIAL_PROVIDER);
-
-        generator.addProvider(true, new TEGMatLibDatapackProvider(event, MoreMetalsMod.MOD_ID, configuredFeatures, placedFeatures, biomeModifiers, trims));
 		generator.addProvider(true, new TEGMatLibGlobalLootModifierProvider(event, MATERIAL_PROVIDER));
     }
 

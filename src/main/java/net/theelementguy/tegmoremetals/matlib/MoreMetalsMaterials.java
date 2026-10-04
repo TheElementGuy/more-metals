@@ -37,7 +37,9 @@ public class MoreMetalsMaterials implements FullyConfiguredMaterialHolder {
 
 	private Supplier<MaterialConfiguration> AQUAMARINE = () -> new SandDiamondTypeBuilder().armorMaterial(13, 3, 6, 6, 2, 6, 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 0f, 0f).toolMaterial(276, 5.5f, 3f, 15).baseName("aquamarine").inGameName("Aquamarine").dropsPerOre(1).smeltingExperience(0.5f).modId("tegmoremetals").tier(MiningTier.IRON).blockProperties(MapColor.DIAMOND, SoundType.METAL).setBefore("cubic_zirconia", "cubic_zirconia", () -> CUBIC_ZIRCONIA.get().getBaseItem(), () -> CUBIC_ZIRCONIA.get().getBaseBlock(), "deepslate_tenumbrum_ore").oreConfigAll(() -> new OreGenConfig(OreGenSize.SMALL, HeightRangePlacement.triangle(VerticalAnchor.absolute(34), VerticalAnchor.absolute(70)), 2, 0f, OreRarity.COMMON, 25, BiomeTags.IS_OCEAN), () -> new OreGenConfig(OreGenSize.MEDIUM, HeightRangePlacement.triangle(VerticalAnchor.absolute(34), VerticalAnchor.absolute(70)), 4, 0f, OreRarity.COMMON, 10, BiomeTags.IS_OCEAN), () -> new OreGenConfig(OreGenSize.LARGE, HeightRangePlacement.uniform(VerticalAnchor.absolute(30), VerticalAnchor.absolute(50)), 7, 0f, OreRarity.COMMON, 5, BiomeTags.IS_OCEAN), OreGenConfig.extraWithBiome(70, 50, OreDistribution.TRIANGLE, 3, 30, Biomes.WARM_OCEAN)).spearMaterial(0.95F, 0.95F, 0.6F, 2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F).trimMaterialDescriptionColor("#6666ff").usingHorseArmor().animalArmorBefore("cubic_zirconia").usingNautilusArmor().addLoot(LootItemSlot.HORSE_ARMOR, LootModifierType.EXTRA, "chests/underwater_ruin_big", 0.09f).addLoot(LootItemSlot.NAUTILUS_ARMOR, LootModifierType.EXTRA, "chests/shipwreck_treasure", 0.07f).build();
 
-	public List<Supplier<MaterialConfiguration>> MATERIALS = List.of(TENUMBRUM, STARSHARD, BLOODSTONE, CUBIC_ZIRCONIA, RUBIDIUM, AQUAMARINE);
+	private Supplier<MaterialConfiguration> JADE = () -> new DiamondTypeBuilder().armorMaterial(15, 3, 6, 4, 2, 4, 9, SoundEvents.ARMOR_EQUIP_GENERIC, 0f, 0f).baseName("jade").toolMaterial(200, 5.5F, 2.0F, 11).smeltingExperience(0.9f).dropsPerOre(1).inGameName("Jade").blockProperties(MapColor.TERRACOTTA_GREEN, SoundType.STONE).oreConfigNoExtra(OreGenConfig.smallAllBiomes(64, -16, OreDistribution.TRIANGLE, 2, 16, Dimension.OVERWORLD, 0.5f), OreGenConfig.mediumAllBiomes(32, -32, OreDistribution.TRIANGLE, 9, 4, Dimension.OVERWORLD, 0.5f), OreGenConfig.rareLargeAllBiomes(16, -32, OreDistribution.TRIANGLE, 16, 2, Dimension.OVERWORLD, 0.7f)).modId("tegmoremetals").trimMaterialDescriptionColor("#274500").tier(MiningTier.IRON).setBefore("aquamarine", "aquamarine", () -> AQUAMARINE.get().getBaseItem(), () -> AQUAMARINE.get().getBaseBlock(), "cubic_zirconia").spearMaterial(0.95F, 0.95F, 0.6F, 2.5F, 11.0F, 6.75F, 5.1F, 11.25F, 4.6F).usingHorseArmor().animalArmorBefore("aquamarine").addLoot(LootItemSlot.HORSE_ARMOR, LootModifierType.EXTRA, "chests/simple_dungeon", 0.15f).addLoot(LootItemSlot.HORSE_ARMOR, LootModifierType.EXTRA, "chests/bastion_treasure", 0.193f).addLoot(LootItemSlot.NAUTILUS_ARMOR, LootModifierType.EXTRA, "chests/shipwreck_treasure", 0.046f).usingNautilusArmor().build();
+
+	public List<Supplier<MaterialConfiguration>> MATERIALS = List.of(TENUMBRUM, BLOODSTONE, CUBIC_ZIRCONIA, RUBIDIUM, STARSHARD, AQUAMARINE, JADE);
 
 	@Override
 	public void setMaterialConfiguration(List<Supplier<MaterialConfiguration>> material) {
@@ -48,6 +50,7 @@ public class MoreMetalsMaterials implements FullyConfiguredMaterialHolder {
 		RUBIDIUM = material.get(3);
 		STARSHARD = material.get(4);
 		AQUAMARINE = material.get(5);
+		JADE = material.get(6);
 	}
 
 	public List<MaterialConfiguration> getMaterials() {
